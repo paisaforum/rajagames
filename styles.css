@@ -64,7 +64,7 @@ nav.desktop-menu a {
     display: none;
     flex-direction: column;
     background: rgb(0 0 0 / 63%);
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -80,18 +80,20 @@ nav.desktop-menu a {
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 99999;
 }
 
 .mobile-menu.open {
     display: flex;
     opacity: 1;
   transform: translateY(0);
+align-items: flex-start;
 }
 
 .mobile-menu a {
     color: #fff;
     text-decoration: none;
-    padding: 1em;
+    padding: 0.7em;
     font-size: 1.2em;
 }
 
