@@ -64,12 +64,11 @@ nav.desktop-menu a {
     display: none;
     flex-direction: column;
     background: rgb(0 0 0 / 63%);
-    position: relative;
+    position: absolute;
     top: 85px;
     left: 0;
     right: 0;
-    bottom: 340px;
-    z-index: 999;
+    bottom: 160px;
     padding: 2em 1em;
     justify-content: center;
     align-items: center;
