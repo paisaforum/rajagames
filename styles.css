@@ -1,0 +1,349 @@
+/* Google Fonts */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top center, #16141d 0%, #060708 100%);
+    color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    margin: 1.25em 0 -0.5em 0;
+    font-size: 2em;
+    line-height: 1.2em;
+}
+
+p, li, a {
+    font-size: 1.15rem;
+    line-height: 1.2em;
+    text-decoration: none;
+    color:white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background: #00000066;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+.logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.hamburger {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    display: block;
+    cursor: pointer;
+}
+
+nav.desktop-menu {
+    display: none;
+    gap: 2em;
+}
+
+nav.desktop-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgb(0 0 0 / 63%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 340px;
+    z-index: 999;
+    padding: 2em 1em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid #3cafcfc2;
+    backdrop-filter: blur(6px);
+    box-shadow: 0px 8px 39px #00daff96 inset;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.open {
+    display: flex;
+    opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+main {
+    padding: 3em 1em 1em;
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 1em 1em;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+
+.btn, .btn-secondary {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #ff3c00;
+    color: white;
+    width: 4em;
+}
+
+.btn-secondary {
+    background-color: #7e51ff;
+    color: white;
+}
+
+.btn:hover, .btn-secondary:hover {
+    opacity: 0.9;
+}
+
+.offer-banner {
+    display: flex;
+    justify-content: center;
+    margin: 1.5em 0;
+}
+
+.offer-img {
+    width: 100%;
+    max-width: 702px;
+    aspect-ratio: 351 / 160;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    height: auto; /* Prevents layout jump */
+  }
+  
+.mobile-ad img {
+    width: 100%;
+    max-width: 320px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 1em auto;
+}
+
+.features ul, .why-play ul, .login-guide ol, .deposit-guide ol {
+    padding-left: 1.2em;
+}
+
+.info-card {
+    background: #2a2737;
+    border-radius: 12px;
+    padding: 1em;
+    margin: 1.5em 0;
+    font-size: 0.95rem;
+    display: grid;
+    gap: 0.75em;
+}
+
+.info-card div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 0.75em 1em;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.info-card span:first-child {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.info-card span:last-child {
+    color: #ffffff;
+    text-align: right;
+}
+
+.telegram-btn {
+    display: inline-block;
+    background: linear-gradient(180deg, #49DFF0, #001820);
+    color: white;
+    padding: 1.2em 2em;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px 3px #ffffffcf inset;
+    font-size: 1.4em;
+}
+
+.telegram-btn:hover {
+    background: #007be6;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.payment-icon {
+    background: #1b1a2b;
+    text-align: center;
+    padding: 0.75em;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 2em 1em;
+    background: #111;
+    font-size: 0.9rem;
+}
+
+footer nav a {
+    color: #aaa;
+    margin: 0 0.5em;
+    text-decoration: none;
+}
+
+/* Desktop Ad Placement */
+.desktop-ad {
+    display: none;
+    position: fixed;
+    top: 120px;
+    width: 300px;
+    height: 600px;
+    background: #333;
+}
+
+.left-ad {
+    left: 0;
+}
+
+.right-ad {
+    right: 0;
+}
+
+
+
+
+
+.blog-section {
+    margin-top: 2em;
+  }
+  
+  .featured-blog {
+    margin-bottom: 2em;
+    background: #201f2c;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 2.2em;
+  }
+  
+  .featured-blog img {
+    width: 100%;
+    max-width: 702px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .featured-blog h3 {
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+  
+  .featured-blog p {
+    margin-top: 0.5em;
+    font-size: 1em;
+    color: #ccc;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1em;
+    margin-top: 2.2em;
+  }
+  
+  .blog-grid h4{
+    margin: 10px 0px 10px 0px;
+  }
+  .blog-tile {
+    background: #201f2c;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s;
+  }
+  
+  .blog-tile img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.75em;
+  }
+  
+  .blog-tile:hover {
+    background: #1e1e1e;
+  }
+  
+
+@media(min-width: 1024px) {
+    .desktop-ad {
+        display: block;
+    }
+    .hamburger {
+        display: none;
+    }
+    nav.desktop-menu {
+        display: flex;
+    }
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .payment-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
