@@ -6,12 +6,18 @@ body {
     color: #ffffff;
 }
 
+.bonus-text {
+  min-height: 120px; /* adjust based on exact paragraph height */
+  overflow-anchor: none; /* prevents CLS from anchors too */
+}
+
 h1, h2, h3, h4 {
     font-family: 'Anton', sans-serif;
     font-weight: 400;
     margin: 1.25em 0 -0.5em 0;
     font-size: 2em;
     line-height: 1.2em;
+    min-height: 1.2em; /* ← Prevent layout jumps when font loads */
 }
 
 p, li, a {
@@ -61,53 +67,65 @@ nav.desktop-menu a {
 }
 
 .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: rgb(0 0 0 / 63%);
-    position: absolute;
-    top: 85px;
-    left: 0;
-    right: 0;
-    bottom: 160px;
-    padding: 2em 1em;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 2px solid #494883eb;
-    border-top: 0px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0px 8px 39px #6d86b096 inset;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 99999;
+  display: none;
+  flex-direction: column;
+  background: rgb(0 0 0 / 63%);
+  position: fixed; /* 👈 Fixed to viewport */
+  top: 85px;        /* 👈 Leave this if you want space from top nav */
+  left: 0;
+  right: 0;
+  bottom: 20em;        /* 👈 cover till bottom */
+  padding: 2em 1em;
+  justify-content: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid #494883eb;
+  border-top: 0px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 8px 39px #6d86b096 inset;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99999;
 }
+
 
 .mobile-menu.open {
     display: flex;
     opacity: 1;
   transform: translateY(0);
-align-items: flex-start;
+  align-items: flex-start;
 }
 
 .mobile-menu a {
     color: #fff;
     text-decoration: none;
-    padding: 0.7em;
+    padding: 1em;
     font-size: 1.2em;
 }
 
 main {
-    padding: 3em 1em 1em;
+    padding: 4em 1em 1em;
     max-width: 800px;
     margin: auto;
 }
 
 .hero {
-    text-align: center;
     padding: 1em 1em;
 }
+
+
+figure {
+  margin: 0px;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5em;
+}
+
 
 .cta-buttons {
     display: flex;
@@ -127,13 +145,14 @@ main {
 }
 
 .btn {
-    background-color: #ff3c00;
+    background-color: #ff0000;
     color: white;
     width: 4em;
+    text-align: center;
 }
 
 .btn-secondary {
-    background-color: #7e51ff;
+    background-color: #ff0000;
     color: white;
 }
 
@@ -144,7 +163,7 @@ main {
 .offer-banner {
     display: flex;
     justify-content: center;
-    margin: 1.5em 0;
+    margin: 0px;
 }
 
 .offer-img {
@@ -158,13 +177,10 @@ main {
     height: auto; /* Prevents layout jump */
   }
   
-.mobile-ad img {
-    width: 100%;
-    max-width: 320px;
-    height: 100px;
-    object-fit: cover;
-    display: block;
-    margin: 1em auto;
+.mobile-ad a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .features ul, .why-play ul, .login-guide ol, .deposit-guide ol {
@@ -217,26 +233,15 @@ main {
     background: #007be6;
 }
 
-.payment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1em;
-    margin-top: 1em;
-}
-
-.payment-icon {
-    background: #1b1a2b;
-    text-align: center;
-    padding: 0.75em;
-    border-radius: 10px;
-    font-weight: bold;
-}
 
 footer {
     text-align: center;
     padding: 2em 1em;
     background: #111;
     font-size: 0.9rem;
+    display: flex;
+        flex-direction: column;
+    align-items: center;
 }
 
 footer nav a {
@@ -264,6 +269,14 @@ footer nav a {
 }
 
 
+
+.faq-item-cont{
+  padding: 10px 30px;
+  background-color: #25232c;
+  border-radius: 10px;
+  margin-top: 25px;
+
+}
 
 
 
@@ -326,13 +339,150 @@ footer nav a {
   }
   
   .blog-tile:hover {
-    background: #1e1e1e;
+    background: #33304e;
+  }
+  .pagination {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .pagination a {
+    color: white;
+    padding: 0.5em 1em;
+    margin: 0 0.2em;
+    background: #222;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .pagination a.active {
+    background: #ff0000;
+    font-weight: bold;
+  }
+
+  
+
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin: 3em 0 -2em 0em;
+  }
+  .breadcrumb a {
+    color: #9574bb;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .breadcrumb span {
+    color: #a7a6af;
   }
   
+
+
+
+  .blog-controls {
+    text-align: center;
+    margin-top: 2em;
+  }
+  
+  .load-more-btn {
+    background-color: #4b4b4b;
+    color: white;
+    border: none;
+    padding: 0.75em 2em;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 0.5em auto;
+    display: inline-block;
+    min-width: 220px;
+    transition: background 0.2s ease;
+  }
+  
+  .load-more-btn:hover {
+    background-color: #252525;
+  }
+  
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1em;
+  }
+  
+
+.blog-tile h4{
+  font-size: 1.6em;
+  line-height: 1.4;
+  max-height: 2.8em; /* limits to 2 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+
+  h1, h2, h3, h4 {
+    font-weight: 200;
+    font-size: 1.5em;
+}
+p, li, a {
+  font-size: 1rem;
+}
+    /* Blog Section Titles */
+.blog-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Blog Tile Title */
+.blog-tile h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  max-height: 2.8em; /* limits to 2 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+}
+
+
+  .mobile-ad video {
+    display: block;
+    width: 320px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Desktop ad videos should also be styled safely */
+.desktop-ad video {
+    width: 300px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+
+.payment-banner {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px; /* ⬅️ space from title */
+}
+
+.payment-banner img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 @media(min-width: 1024px) {
     .desktop-ad {
         display: block;
+        background: none;
     }
     .hamburger {
         display: none;
@@ -345,8 +495,11 @@ footer nav a {
     }
 }
 
-@media(max-width: 768px) {
-    .payment-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+/* Hide mobile ads on desktop */
+@media (min-width: 769px) {
+    .mobile-ad {
+      display: none !important;
     }
-}
+  }
+  
